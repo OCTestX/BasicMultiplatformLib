@@ -17,6 +17,7 @@ group = "io.github.octestx"
 version = "0.0.1"
 
 kotlin {
+    jvmToolchain(17)
     jvm()
     androidTarget {
         publishLibraryVariants("release")
