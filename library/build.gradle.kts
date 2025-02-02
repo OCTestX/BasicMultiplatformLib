@@ -141,15 +141,15 @@ mavenPublishing {
         }
         developers {
             developer {
-                id = "BasicMultiplatformLib"
-                name = "BasicMultiplatformLib"
-                url = "ZZZ"
+                id = "OCTestX"
+                name = "OCTestX"
+                url = "https://github.com/OCTestX"
             }
         }
         scm {
-            url = "XXX"
-            connection = "YYY"
-            developerConnection = "ZZZ"
+            url = "https://github.com/OCTestX/BasicMultiplatformLib"
+            connection = "scm:git:git://github.com/OCTestX/BasicMultiplatformLib.git"
+            developerConnection = "scm:git:ssh://github.com/OCTestX/BasicMultiplatformLib.git"
         }
     }
 }
