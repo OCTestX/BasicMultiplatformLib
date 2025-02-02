@@ -1,0 +1,52 @@
+[versions]
+agp = "8.5.2"
+cache4k = "0.14.0"
+cacheableCore = "0.0.3"
+koinCore = "4.1.0-Beta5"
+moleculeRuntime = "2.0.0"
+precomposeMolecule = "1.6.2"
+sqlite-driver = "2.0.2"
+kloggingJvm = "0.8.0"
+kotlin = "2.1.0"
+android-minSdk = "24"
+android-compileSdk = "34"
+kotlinMultiplatformAppdirs = "1.1.1"
+kotlinxSerializationJson = "1.7.3"
+log4jApi = "2.24.1"
+log4jSlf4jImpl = "2.22.0"
+multiplatformSettings = "1.2.0"
+tablerIcons = "1.1.1"
+kstore = "0.9.1"
+okio = "3.9.1"
+
+[libraries]
+android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlite-driver" }
+cache4k = { module = "io.github.reactivecircus.cache4k:cache4k", version.ref = "cache4k" }
+cacheable-core = { module = "com.moriatsushi.cacheable:cacheable-core", version.ref = "cacheableCore" }
+klogging-jvm = { module = "io.klogging:klogging-jvm", version.ref = "kloggingJvm" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinCore" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinCore" }
+kotlin-multiplatform-appdirs = { module = "ca.gosyer:kotlin-multiplatform-appdirs", version.ref = "kotlinMultiplatformAppdirs" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+log4j-api = { module = "org.apache.logging.log4j:log4j-api", version.ref = "log4jApi" }
+log4j-core = { module = "org.apache.logging.log4j:log4j-core", version.ref = "log4jApi" }
+log4j-slf4j-impl = { module = "org.apache.logging.log4j:log4j-slf4j-impl", version.ref = "log4jSlf4jImpl" }
+molecule-runtime = { module = "app.cash.molecule:molecule-runtime", version.ref = "moleculeRuntime" }
+multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatformSettings" }
+multiplatform-settings-no-arg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatformSettings" }
+precompose-koin = { module = "moe.tlaster:precompose-koin", version.ref = "precomposeMolecule" }
+precompose = { module = "moe.tlaster:precompose", version.ref = "precomposeMolecule" }
+precompose-molecule = { module = "moe.tlaster:precompose-molecule", version.ref = "precomposeMolecule" }
+sqlite-driver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqlite-driver" }
+tabler-icons = { module = "br.com.devsrsouza.compose.icons:tabler-icons", version.ref = "tablerIcons" }
+okio = { module = "com.squareup.okio:okio", version.ref = "okio" }
+# for common
+kstore = { module = "io.github.xxfast:kstore", version.ref = "kstore" }
+kstore-file = { module = "io.github.xxfast:kstore-file", version.ref = "kstore" }
+kstore-storage = { module = "io.github.xxfast:kstore-storage", version.ref = "kstore" }
+
+[plugins]
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+vanniktech-mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.29.0" }
