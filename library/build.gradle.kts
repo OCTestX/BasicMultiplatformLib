@@ -14,7 +14,7 @@ plugins {
 }
 
 group = "io.github.octestx"
-version = "0.0.1"
+version = "0.0.1.2"
 
 kotlin {
     jvmToolchain(17)
@@ -63,9 +63,6 @@ kotlin {
                 //https://github.com/xxfast/KStore
                 api(libs.kstore)
                 api(libs.kstore.file)
-                //https://github.com/DevSrSouza/compose-icons
-                //https://tabler.io/icons
-                api(libs.tabler.icons)
                 //https://github.com/syer10/Kotlin-Multiplatform-AppDirs
                 api(libs.kotlin.multiplatform.appdirs)
                 //https://sqldelight.github.io/sqldelight/2.0.2/
@@ -88,13 +85,13 @@ kotlin {
         }
         jvmMain.dependencies {
             //https://sqldelight.github.io/sqldelight/2.0.2/
-            implementation(libs.sqlite.driver)
+            api(libs.sqlite.driver)
         }
         androidMain.dependencies {
             //https://sqldelight.github.io/sqldelight/2.0.2/
-            implementation(libs.android.driver)
+            api(libs.android.driver)
             //https://github.com/InsertKoinIO/koin
-            implementation(libs.koin.android)
+            api(libs.koin.android)
         }
         val commonTest by getting {
             dependencies {

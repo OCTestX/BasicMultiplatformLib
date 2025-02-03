@@ -15,7 +15,6 @@ kotlinxSerializationJson = "1.7.3"
 log4jApi = "2.24.1"
 log4jSlf4jImpl = "2.22.0"
 multiplatformSettings = "1.2.0"
-tablerIcons = "1.1.1"
 kstore = "0.9.1"
 okio = "3.9.1"
 
@@ -39,7 +38,6 @@ precompose-koin = { module = "moe.tlaster:precompose-koin", version.ref = "preco
 precompose = { module = "moe.tlaster:precompose", version.ref = "precomposeMolecule" }
 precompose-molecule = { module = "moe.tlaster:precompose-molecule", version.ref = "precomposeMolecule" }
 sqlite-driver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqlite-driver" }
-tabler-icons = { module = "br.com.devsrsouza.compose.icons:tabler-icons", version.ref = "tablerIcons" }
 okio = { module = "com.squareup.okio:okio", version.ref = "okio" }
 # for common
 kstore = { module = "io.github.xxfast:kstore", version.ref = "kstore" }
