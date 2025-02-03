@@ -14,7 +14,7 @@ plugins {
 }
 
 group = "io.github.octestx"
-version = "0.0.1.2"
+version = "0.0.1.3"
 
 kotlin {
     jvmToolchain(17)
@@ -129,7 +129,7 @@ mavenPublishing {
         name = "BasicMultiplatformLib"
         description = "提供很多基本特性包括日志，设置存储，json序列化"
         inceptionYear = "2025"
-        url = "https://github.com/kotlin/multiplatform-library-template/"
+        url = "https://github.com/OCTestX/BasicMultiplatformLib"
         licenses {
             license {
                 name = "The Apache License, Version 2.0"
