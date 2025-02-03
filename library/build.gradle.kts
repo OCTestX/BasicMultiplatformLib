@@ -51,31 +51,31 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 //put your multiplatform dependencies here
-                implementation(libs.kotlinx.serialization.json)
+                api(libs.kotlinx.serialization.json)
                 //
                 implementation (libs.log4j.api)
                 implementation (libs.log4j.core)
                 implementation(libs.log4j.slf4j.impl)
-                implementation(libs.klogging.jvm)
+                api(libs.klogging.jvm)
                 //https://github.com/russhwolf/multiplatform-settings?tab=readme-ov-file#make-observable-module
-                implementation(libs.multiplatform.settings)
-                implementation(libs.multiplatform.settings.no.arg)
+                api(libs.multiplatform.settings)
+                api(libs.multiplatform.settings.no.arg)
                 //https://github.com/xxfast/KStore
-                implementation(libs.kstore)
-                implementation(libs.kstore.file)
+                api(libs.kstore)
+                api(libs.kstore.file)
                 //https://github.com/DevSrSouza/compose-icons
                 //https://tabler.io/icons
-                implementation(libs.tabler.icons)
+                api(libs.tabler.icons)
                 //https://github.com/syer10/Kotlin-Multiplatform-AppDirs
-                implementation(libs.kotlin.multiplatform.appdirs)
+                api(libs.kotlin.multiplatform.appdirs)
                 //https://sqldelight.github.io/sqldelight/2.0.2/
 
                 //https://github.com/ReactiveCircus/cache4k
-                implementation(libs.cache4k)
+                api(libs.cache4k)
                 //https://github.com/mori-atsushi/kotlin-cacheable
 //                implementation(libs.cacheable.core)
                 //https://github.com/InsertKoinIO/koin
-                implementation(libs.koin.core)
+                api(libs.koin.core)
                 //https://github.com/cashapp/molecule/tree/trunk
 //                implementation(libs.molecule.runtime)
                 //https://github.com/Tlaster/PreCompose
@@ -83,7 +83,7 @@ kotlin {
 //                api(libs.precompose.koin)
 //                api(libs.precompose.molecule)
                 //
-                implementation(libs.okio) // 请检查是否有更新版本
+                api(libs.okio) // 请检查是否有更新版本
             }
         }
         jvmMain.dependencies {
