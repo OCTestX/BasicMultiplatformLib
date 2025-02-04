@@ -73,12 +73,6 @@ kotlin {
 //                implementation(libs.cacheable.core)
                 //https://github.com/InsertKoinIO/koin
                 api(libs.koin.core)
-                //https://github.com/cashapp/molecule/tree/trunk
-//                implementation(libs.molecule.runtime)
-                //https://github.com/Tlaster/PreCompose
-//                api(libs.precompose)
-//                api(libs.precompose.koin)
-//                api(libs.precompose.molecule)
                 //
                 api(libs.okio) // 请检查是否有更新版本
             }

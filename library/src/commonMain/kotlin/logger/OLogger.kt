@@ -36,17 +36,17 @@ object OLogger {
             sink("file", fileSink)
             logging { fromMinLevel(DEBUG) { toSink("file") } }
         }
-        Thread.setDefaultUncaughtExceptionHandler(Inc.GlobalExceptionHandler)
+        Thread.setDefaultUncaughtExceptionHandler(Inc.GlobalExceptionHandler(Thread.getDefaultUncaughtExceptionHandler()))
         ologger.info("Initialized")
     }
     private object Inc {
-        object GlobalExceptionHandler : Thread.UncaughtExceptionHandler {
+        class GlobalExceptionHandler(val default: Thread.UncaughtExceptionHandler) : Thread.UncaughtExceptionHandler by default {
             private val ologger = noCoLogger<GlobalExceptionHandler>()
-
             override fun uncaughtException(thread: Thread, exception: Throwable) {
                 ologger.error(exception) {
                     "The uncaught exception in thread ${thread.name}: ${exception.message}"
                 }
+                default.uncaughtException(thread, exception)
             }
         }
     }

@@ -80,7 +80,8 @@ fun Path.hidden() {
     }
 }
 fun Path.formatFileSize(): String {
-    return Utils.formatFileSize(SystemFileSystem.metadataOrNull(this)!!.size)
+//    return Utils.formatFileSize(SystemFileSystem.metadataOrNull(this)!!.size)
+    return storage(SystemFileSystem.metadataOrNull(this)!!.size)
 }
 fun Path.source(): RawSource {
     return SystemFileSystem.source(this)
