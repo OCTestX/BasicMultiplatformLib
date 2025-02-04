@@ -40,7 +40,7 @@ object OLogger {
         ologger.info("Initialized")
     }
     private object Inc {
-        class GlobalExceptionHandler(val default: Thread.UncaughtExceptionHandler) : Thread.UncaughtExceptionHandler by default {
+        class GlobalExceptionHandler(val default: Thread.UncaughtExceptionHandler?) : Thread.UncaughtExceptionHandler by default {
             private val ologger = noCoLogger<GlobalExceptionHandler>()
             override fun uncaughtException(thread: Thread, exception: Throwable) {
                 ologger.error(exception) {
