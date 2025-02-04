@@ -14,7 +14,7 @@ plugins {
 }
 
 group = "io.github.octestx"
-version = "0.0.2Test3"
+version = "0.0.2Test4"
 
 kotlin {
     jvmToolchain(17)
