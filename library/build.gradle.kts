@@ -1,8 +1,4 @@
 import com.vanniktech.maven.publish.SonatypeHost
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -14,7 +10,7 @@ plugins {
 }
 
 group = "io.github.octestx"
-version = "0.0.2Test4"
+version = "0.0.3"
 
 kotlin {
     jvmToolchain(17)
@@ -52,6 +48,7 @@ kotlin {
             dependencies {
                 //put your multiplatform dependencies here
                 api(libs.kotlinx.serialization.json)
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
                 //
                 implementation (libs.log4j.api)
                 implementation (libs.log4j.core)

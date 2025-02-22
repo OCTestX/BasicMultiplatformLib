@@ -26,6 +26,12 @@ object OLogger {
         }
         val logFile = appDirs.getUserLogDir().asFilePath().linkFile(System.nanoTime().toString()+".log").mustFile()
         ologger.info { "日志文件位置: $logFile" }
+        ologger.info { "getSharedDir:"+appDirs.getSharedDir() }
+        ologger.info { "getUserCacheDir:"+appDirs.getUserCacheDir() }
+        ologger.info { "getUserDataDir:"+appDirs.getUserDataDir() }
+        ologger.info { "getSiteConfigDir:"+appDirs.getSiteConfigDir() }
+        ologger.info { "getSiteDataDir:"+appDirs.getSiteDataDir() }
+        ologger.info { "getUserConfigDir:"+appDirs.getUserConfigDir() }
         loggingConfiguration(append = true) {
             val filePrinter = logFile.sink().buffered()
             val fileSendString = SendString {
