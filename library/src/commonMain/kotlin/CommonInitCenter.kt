@@ -22,11 +22,11 @@ internal object CommonInitCenter {
 class BasicMultiplatformConfigModule() {
     var appDir: AppDirs? = null
     fun asModule() = module {
-        if (appDir == null) throw ExceptionInInitializerError("need config appDir")
-        single { appDir }
+        val tmp = appDir ?: throw ExceptionInInitializerError("need config appDir")
+        single<AppDirs> { tmp }
     }
     fun configInnerAppDir(parentDir: File) {
-        object : AppDirs {
+        appDir = object : AppDirs {
             override fun getSharedDir(): String = File(parentDir, "shared").absolutePath
             override fun getSiteConfigDir(multiPath: Boolean): String = File(parentDir, "siteConfig").absolutePath
             override fun getSiteDataDir(multiPath: Boolean): String = File(parentDir, "siteData").absolutePath
