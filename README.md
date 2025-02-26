@@ -13,6 +13,8 @@
 - 文件操作，字节流使用com.squareup.okio:okio
 
 # 使用
+[OS.kt](./library/src/commonMain/kotlin/utils/OS.kt)
+提供了一些抽象系统层面的操作例如获取系统类型
 
 ## 初始化平台InitCenter
 - AndroidInitCenter

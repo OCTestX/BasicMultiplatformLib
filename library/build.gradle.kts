@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "io.github.octestx"
-version = "0.0.4Fix1"
+version = "0.0.5"
 
 kotlin {
     jvmToolchain(17)
@@ -48,7 +48,7 @@ kotlin {
             dependencies {
                 //put your multiplatform dependencies here
                 api(libs.kotlinx.serialization.json)
-                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
+                api(libs.kotlinx.coroutines.core)
                 //
                 implementation (libs.log4j.api)
                 implementation (libs.log4j.core)
