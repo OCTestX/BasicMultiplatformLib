@@ -1,5 +1,10 @@
 # 通用的BasicLib，可以用在Desktop， Android， Server
 
+# 发行 
+1. 修改文件library/build.gradle.kts中version = "0.0.6R1"
+2. 推送到GitHub，并创建一个Release
+3. 在Maven(https://central.sonatype.com/publishing/deployments)中点击Publish
+
 # 技术栈
 
 - 序列化Json，使用Ojson
