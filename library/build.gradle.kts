@@ -72,6 +72,7 @@ kotlin {
                 api(libs.koin.core)
                 //
                 api(libs.okio) // 请检查是否有更新版本
+                api("org.jetbrains.kotlinx:kotlinx-io-core:0.7.0")
             }
         }
         jvmMain.dependencies {

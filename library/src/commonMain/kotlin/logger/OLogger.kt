@@ -13,9 +13,8 @@ import io.klogging.config.loggingConfiguration
 import io.klogging.noCoLogger
 import io.klogging.rendering.RENDER_ANSI
 import io.klogging.sending.SendString
-import kotlinx.io.buffered
-import kotlinx.io.writeString
 import java.lang.System
+import kotlinx.io.*
 
 object OLogger {
     private val ologger = noCoLogger<OLogger>()
@@ -42,12 +41,12 @@ object OLogger {
             sink("file", fileSink)
             logging { fromMinLevel(DEBUG) { toSink("file") } }
         }
-        Thread.setDefaultUncaughtExceptionHandler(Inc.GlobalExceptionHandler(Thread.getDefaultUncaughtExceptionHandler()?:Inc.NOPHandle()))
+        Thread.setDefaultUncaughtExceptionHandler(Inc.GlobalExceptionHandler(Thread.getDefaultUncaughtExceptionHandler()?:Inc.GlobalExceptionHandler(Inc.NOPHandle())))
         ologger.info("Initialized")
     }
     private object Inc {
         class NOPHandle() : Thread.UncaughtExceptionHandler {
-            override fun uncaughtException(t: Thread?, e: Throwable?) {
+            override fun uncaughtException(t: Thread, e: Throwable) {
             }
         }
         class GlobalExceptionHandler(val default: Thread.UncaughtExceptionHandler) : Thread.UncaughtExceptionHandler by default {
