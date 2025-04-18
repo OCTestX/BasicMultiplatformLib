@@ -7,7 +7,7 @@ object OS {
     }
 
     // 获取当前操作系统
-    private val currentOS by lazy {
+    val currentOS by lazy {
         val osName = System.getProperty("os.name").lowercase()
         when {
             "win" in osName -> OperatingSystem.WIN
