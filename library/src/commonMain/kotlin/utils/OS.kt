@@ -5,8 +5,12 @@ object OS {
     enum class OperatingSystem {
         WIN, MACOS, LINUX, OTHER
     }
+    private val currentOS by lazy {
+        getCurrentOS()
+    }
 
     // 获取当前操作系统的函数
+    @Deprecated("Use currentOS val")
     fun getCurrentOS(): OperatingSystem {
         val osName = System.getProperty("os.name").lowercase()
         return when {
