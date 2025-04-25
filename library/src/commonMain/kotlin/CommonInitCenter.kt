@@ -1,7 +1,7 @@
-package io.github.kotlin.fibonacci
+package io.github.octestx.basic.multiplatform.common
 
 import ca.gosyer.appdirs.AppDirs
-import io.github.kotlin.fibonacci.logger.OLogger
+import io.github.octestx.basic.multiplatform.common.logger.OLogger
 import org.koin.dsl.module
 import org.koin.java.KoinJavaComponent.get
 import java.io.File

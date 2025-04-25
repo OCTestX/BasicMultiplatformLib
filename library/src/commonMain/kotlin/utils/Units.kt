@@ -1,4 +1,4 @@
-package io.github.kotlin.fibonacci.utils
+package io.github.octestx.basic.multiplatform.common.utils
 
 val Int.sec get(): Long = this.toLong()*1000
 val Int.OneTenthSec get(): Long = this.toLong()*100

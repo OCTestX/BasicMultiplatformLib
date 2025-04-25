@@ -1,4 +1,4 @@
-package io.github.kotlin.fibonacci.utils
+package io.github.octestx.basic.multiplatform.common.utils
 
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json

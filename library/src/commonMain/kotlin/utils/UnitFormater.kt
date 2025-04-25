@@ -1,8 +1,4 @@
-package io.github.kotlin.fibonacci.utils
-
-import kotlinx.datetime.Instant
-import kotlinx.datetime.TimeZone
-import kotlinx.datetime.toLocalDateTime
+package io.github.octestx.basic.multiplatform.common.utils
 
 fun storage(bytes: Long): String {
     val units = arrayOf("B", "KB", "MB", "GB", "TB")

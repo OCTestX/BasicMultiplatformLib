@@ -1,4 +1,4 @@
-package io.github.kotlin.fibonacci.utils
+package io.github.octestx.basic.multiplatform.common.utils
 
 /**
  * @param limit 为-1时无限

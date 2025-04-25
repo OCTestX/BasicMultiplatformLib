@@ -1,4 +1,4 @@
-package io.github.kotlin.fibonacci.utils
+package io.github.octestx.basic.multiplatform.common.utils
 
 object OS {
     // 定义操作系统类型的枚举

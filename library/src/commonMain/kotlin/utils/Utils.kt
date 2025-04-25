@@ -1,7 +1,4 @@
-package io.github.kotlin.fibonacci.utils
-
-import kotlin.math.pow
-import kotlin.math.roundToInt
+package io.github.octestx.basic.multiplatform.common.utils
 
 object Utils {
 //    fun formatFileSize(size: Long): String {

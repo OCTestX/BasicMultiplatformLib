@@ -1,13 +1,15 @@
-package io.github.kotlin.fibonacci.utils
+package io.github.octestx.basic.multiplatform.common.utils
 
 import io.klogging.noCoLogger
-import kotlinx.io.*
+import kotlinx.io.IOException
+import kotlinx.io.RawSink
+import kotlinx.io.RawSource
 import kotlinx.io.files.Path
 import kotlinx.io.files.SystemFileSystem
 import java.io.File
 import java.nio.file.Files
 
-private val ologger = noCoLogger("OFileUtils")
+private val ologger = noCoLogger("OFileSystemUtils")
 fun Path.linkDir(name: String): Path = link(name).mustDir(createIfExists = true)
 fun Path.linkFile(name: String): Path = link(name).mustFile(createIfExists = true)
 fun Path.link(name: String): Path = Path(this, name)
@@ -90,4 +92,4 @@ fun Path.sink(): RawSink {
     return SystemFileSystem.sink(this)
 }
 
-fun String.asFilePath() = Path(this)
+fun String.asKFilePath() = Path(this)

@@ -1,10 +1,10 @@
-package io.github.kotlin.fibonacci.logger
+package io.github.octestx.basic.multiplatform.common.logger
 
-import io.github.kotlin.fibonacci.appDirs
-import io.github.kotlin.fibonacci.utils.asFilePath
-import io.github.kotlin.fibonacci.utils.linkFile
-import io.github.kotlin.fibonacci.utils.mustFile
-import io.github.kotlin.fibonacci.utils.sink
+import io.github.octestx.basic.multiplatform.common.appDirs
+import io.github.octestx.basic.multiplatform.common.utils.asKFilePath
+import io.github.octestx.basic.multiplatform.common.utils.linkFile
+import io.github.octestx.basic.multiplatform.common.utils.mustFile
+import io.github.octestx.basic.multiplatform.common.utils.sink
 import io.klogging.Level
 import io.klogging.Level.DEBUG
 import io.klogging.config.ANSI_CONSOLE
@@ -13,8 +13,8 @@ import io.klogging.config.loggingConfiguration
 import io.klogging.noCoLogger
 import io.klogging.rendering.RENDER_ANSI
 import io.klogging.sending.SendString
-import java.lang.System
-import kotlinx.io.*
+import kotlinx.io.buffered
+import kotlinx.io.writeString
 
 object OLogger {
     private val ologger = noCoLogger<OLogger>()
@@ -23,7 +23,7 @@ object OLogger {
             ANSI_CONSOLE()
             this.kloggingMinLogLevel(Level.DEBUG)
         }
-        val logFile = appDirs.getUserLogDir().asFilePath().linkFile(System.nanoTime().toString()+".log").mustFile()
+        val logFile = appDirs.getUserLogDir().asKFilePath().linkFile(System.nanoTime().toString() + ".log").mustFile()
         ologger.info { "日志文件位置: $logFile" }
         ologger.info { "getSharedDir:"+appDirs.getSharedDir() }
         ologger.info { "getUserCacheDir:"+appDirs.getUserCacheDir() }
@@ -41,7 +41,11 @@ object OLogger {
             sink("file", fileSink)
             logging { fromMinLevel(DEBUG) { toSink("file") } }
         }
-        Thread.setDefaultUncaughtExceptionHandler(Inc.GlobalExceptionHandler(Thread.getDefaultUncaughtExceptionHandler()?:Inc.GlobalExceptionHandler(Inc.NOPHandle())))
+        Thread.setDefaultUncaughtExceptionHandler(
+            Inc.GlobalExceptionHandler(
+                Thread.getDefaultUncaughtExceptionHandler() ?: Inc.GlobalExceptionHandler(Inc.NOPHandle())
+            )
+        )
         ologger.info("Initialized")
     }
     private object Inc {

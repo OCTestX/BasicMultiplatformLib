@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "io.github.octestx"
-version = "0.0.8"
+version = "0.1.0"
 
 kotlin {
     jvmToolchain(17)
@@ -72,7 +72,7 @@ kotlin {
                 api(libs.koin.core)
                 //
                 api(libs.okio) // 请检查是否有更新版本
-                api("org.jetbrains.kotlinx:kotlinx-io-core:0.7.0")
+                api(libs.kotlinx.io.core)
             }
         }
         jvmMain.dependencies {

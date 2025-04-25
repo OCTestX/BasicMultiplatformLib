@@ -1,4 +1,4 @@
-package io.github.kotlin.fibonacci
+package io.github.octestx.basic.multiplatform.common
 
 import android.app.Application
 
