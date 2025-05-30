@@ -1,11 +1,9 @@
 [versions]
 agp = "8.5.2"
 cache4k = "0.14.0"
-cacheableCore = "0.0.3"
 koinCore = "4.1.0-Beta5"
 kotlinxCoroutinesCore = "1.10.1"
 kotlinxIoCore = "0.7.0"
-sqlite-driver = "2.0.2"
 kloggingJvm = "0.8.0"
 kotlin = "2.1.0"
 android-minSdk = "28"
@@ -16,12 +14,9 @@ log4jApi = "2.24.1"
 log4jSlf4jImpl = "2.24.1"
 multiplatformSettings = "1.2.0"
 kstore = "0.9.1"
-okio = "3.9.1"
 
 [libraries]
-android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlite-driver" }
 cache4k = { module = "io.github.reactivecircus.cache4k:cache4k", version.ref = "cache4k" }
-cacheable-core = { module = "com.moriatsushi.cacheable:cacheable-core", version.ref = "cacheableCore" }
 klogging-jvm = { module = "io.klogging:klogging-jvm", version.ref = "kloggingJvm" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinCore" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinCore" }
@@ -35,12 +30,9 @@ log4j-core = { module = "org.apache.logging.log4j:log4j-core", version.ref = "lo
 log4j-slf4j-impl = { module = "org.apache.logging.log4j:log4j-slf4j-impl", version.ref = "log4jSlf4jImpl" }
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatformSettings" }
 multiplatform-settings-no-arg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatformSettings" }
-sqlite-driver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqlite-driver" }
-okio = { module = "com.squareup.okio:okio", version.ref = "okio" }
 # for common
 kstore = { module = "io.github.xxfast:kstore", version.ref = "kstore" }
 kstore-file = { module = "io.github.xxfast:kstore-file", version.ref = "kstore" }
-kstore-storage = { module = "io.github.xxfast:kstore-storage", version.ref = "kstore" }
 
 [plugins]
 androidLibrary = { id = "com.android.library", version.ref = "agp" }

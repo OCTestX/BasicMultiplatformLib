@@ -5,8 +5,6 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.vanniktech.mavenPublish)
     kotlin("plugin.serialization") version "1.9.24"
-    id("app.cash.sqldelight") version "2.0.2"
-//    id("com.moriatsushi.cacheable") version "0.0.3"
 }
 
 group = "io.github.octestx"
@@ -17,31 +15,7 @@ kotlin {
     jvm()
     androidTarget {
         publishLibraryVariants("release")
-//        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-//        compilerOptions {
-//            jvmTarget.set(JvmTarget.JVM_21)
-//        }
     }
-//    iosX64()
-//    iosArm64()
-//    iosSimulatorArm64()
-//    linuxX64()
-//    @OptIn(ExperimentalWasmDsl::class, ExperimentalWasmDsl::class)
-//    wasmJs {
-//        browser {
-//            val rootDirPath = project.rootDir.path
-//            val projectDirPath = project.projectDir.path
-//            commonWebpackConfig {
-//                devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
-//                    static = (static ?: mutableListOf()).apply {
-//                        // Serve sources to debug inside browser
-//                        add(rootDirPath)
-//                        add(projectDirPath)
-//                    }
-//                }
-//            }
-//        }
-//    }
 
     sourceSets {
         val commonMain by getting {
@@ -71,17 +45,18 @@ kotlin {
                 //https://github.com/InsertKoinIO/koin
                 api(libs.koin.core)
                 //
-                api(libs.okio) // 请检查是否有更新版本
                 api(libs.kotlinx.io.core)
+                api("org.ktorm:ktorm-core:4.1.1")
+                api("org.ktorm:ktorm-support-sqlite:4.1.1")
             }
         }
         jvmMain.dependencies {
             //https://sqldelight.github.io/sqldelight/2.0.2/
-            api(libs.sqlite.driver)
+            implementation("org.xerial:sqlite-jdbc:3.45.2.0")
         }
         androidMain.dependencies {
             //https://sqldelight.github.io/sqldelight/2.0.2/
-            api(libs.android.driver)
+            implementation("org.xerial:sqlite-jdbc:3.45.2.0")
             //https://github.com/InsertKoinIO/koin
             api(libs.koin.android)
         }
@@ -100,15 +75,6 @@ android {
         minSdk = libs.versions.android.minSdk.get().toInt()
     }
 }
-
-sqldelight {
-    databases {
-        create("Database") {
-            packageName.set("io.github.octestx")
-        }
-    }
-}
-
 
 mavenPublishing {
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
