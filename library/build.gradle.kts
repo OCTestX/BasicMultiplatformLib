@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "io.github.octestx"
-version = "0.1.4-DownVer"
+version = "0.1.4-DownVerB"
 
 kotlin {
     jvmToolchain(17)
@@ -24,9 +24,6 @@ kotlin {
                 api(libs.kotlinx.serialization.json)
                 api(libs.kotlinx.coroutines.core)
                 //
-                implementation (libs.log4j.api)
-                implementation (libs.log4j.core)
-                implementation(libs.log4j.slf4j.impl)
                 api(libs.klogging.jvm)
                 //https://github.com/russhwolf/multiplatform-settings?tab=readme-ov-file#make-observable-module
                 api(libs.multiplatform.settings)
@@ -53,6 +50,9 @@ kotlin {
         jvmMain.dependencies {
             //https://sqldelight.github.io/sqldelight/2.0.2/
             implementation("org.xerial:sqlite-jdbc:3.45.2.0")
+            implementation (libs.log4j.api)
+            implementation (libs.log4j.core)
+            implementation(libs.log4j.slf4j.impl)
         }
         androidMain.dependencies {
             //https://sqldelight.github.io/sqldelight/2.0.2/
