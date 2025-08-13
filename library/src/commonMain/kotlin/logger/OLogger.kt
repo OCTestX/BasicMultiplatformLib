@@ -44,7 +44,6 @@ object OLogger {
                 filePrinter.writeString(eventString)
                 filePrinter.writeString("\n")
                 filePrinter.flush()
-                platformPrintLog(eventString)
             }
             val fileSink = SinkConfiguration(RENDER_ANSI, fileSendString)
             sink("file", fileSink)
