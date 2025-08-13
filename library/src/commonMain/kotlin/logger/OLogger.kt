@@ -12,6 +12,9 @@ import io.klogging.rendering.RENDER_ANSI
 import io.klogging.sending.EventSender
 import io.klogging.sending.SendElk
 import io.klogging.sending.SendString
+import kotlinx.datetime.Clock
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 import kotlinx.io.buffered
 import kotlinx.io.writeString
 import java.time.Instant
@@ -30,9 +33,15 @@ object OLogger {
 
         // 确保日志目录存在
         val logDir = appDirs.getUserLogDir().asKFilePath().mustDir()
-        val timestamp = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss-SSS")
-            .withZone(ZoneId.systemDefault())
-            .format(Instant.now())
+
+        val timestamp = Clock.System.now()
+            .toLocalDateTime(TimeZone.currentSystemDefault())
+            .let {
+                "${it.year}-${it.monthNumber.toString().padStart(2, '0')}-${it.dayOfMonth.toString().padStart(2, '0')}_${it.hour.toString().padStart(2, '0')}-${it.minute.toString().padStart(2, '0')}-${it.second.toString().padStart(2, '0')}-${it.nanosecond.toString().padStart(3, '0').take(3)}"
+            }
+
+
+
         val logFile = logDir.linkFile("$timestamp.log").mustFile()
 
         ologger.info { "日志文件位置: $logFile" }
