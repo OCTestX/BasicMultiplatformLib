@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "io.github.octestx"
-version = "0.1.4-DownVerB"
+version = "0.2"
 
 kotlin {
     jvmToolchain(17)

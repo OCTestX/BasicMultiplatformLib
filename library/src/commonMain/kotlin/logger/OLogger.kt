@@ -6,14 +6,18 @@ import io.klogging.Level
 import io.klogging.config.ANSI_CONSOLE
 import io.klogging.config.SinkConfiguration
 import io.klogging.config.loggingConfiguration
+import io.klogging.events.LogEvent
 import io.klogging.noCoLogger
 import io.klogging.rendering.RENDER_ANSI
+import io.klogging.sending.EventSender
+import io.klogging.sending.SendElk
 import io.klogging.sending.SendString
 import kotlinx.io.buffered
 import kotlinx.io.writeString
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
+import kotlin.math.sin
 
 object OLogger {
     private val ologger = noCoLogger<OLogger>()
@@ -40,9 +44,18 @@ object OLogger {
                 filePrinter.writeString(eventString)
                 filePrinter.writeString("\n")
                 filePrinter.flush()
+                platformPrintLog(eventString)
             }
             val fileSink = SinkConfiguration(RENDER_ANSI, fileSendString)
             sink("file", fileSink)
+            sink("Af", object :EventSender {
+                override fun invoke(batch: List<LogEvent>) {
+                    for (item in batch) {
+                        platformPrintLog(item)
+                    }
+                }
+
+            })
             logging { fromMinLevel(Level.DEBUG) { toSink("file") } }
         }
 
@@ -80,3 +93,5 @@ object OLogger {
         }
     }
 }
+
+expect fun platformPrintLog(log: LogEvent)
